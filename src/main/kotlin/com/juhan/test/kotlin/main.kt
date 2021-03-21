@@ -29,6 +29,10 @@ fun main(args: Array<String>) {
     genericObject.print()
 
     println("TestObject last item: ${TestObject.items.last()}")
+
+    val car = Car();
+    car.start()
+    println("Car has ${car.getDoors()} doors")
 }
 
 object TestObject {
