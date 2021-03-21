@@ -7,6 +7,13 @@ fun main(args: Array<String>) {
     whenFlow(4)
 
     forLoop(arrayOf(10, 20, 30))
+
+    println("Get sum1 ${getSum1(1, 2)}")
+    println("Get sum2 ${getSum2(1, 2)}")
+    println("Get sum3 ${getSum3(1, 2)}")
+    println("Get sum defaults ${getSumDefaults(1)}")
+    println("Get sum defaults ${getSumDefaults(1, 3)}")
+    println("Get sum defaults2 ${getSumDefaults2(b = 2)}")
 }
 
 
@@ -48,5 +55,19 @@ fun forLoop(myArray: Array<Int>) {
     for ((index, item) in myArray.withIndex()) {
         print("Arr[$index]: $item, ")
     }
+    println()
 }
+
+fun getSum1(a: Int, b: Int): Int {
+    return a + b
+}
+
+fun getSum2(a: Int, b: Int): Int = a + b
+
+// Can detect return type automatically
+fun getSum3(a: Int, b: Int) = a + b
+// Defaults values
+fun getSumDefaults(a: Int, b: Int = 4) = a + b
+// With 2 defaults params
+fun getSumDefaults2(a: Int = 3, b: Int = 4) = a + b
 
