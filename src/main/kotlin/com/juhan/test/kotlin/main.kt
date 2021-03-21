@@ -14,8 +14,26 @@ fun main(args: Array<String>) {
     println("Get sum defaults ${getSumDefaults(1)}")
     println("Get sum defaults ${getSumDefaults(1, 3)}")
     println("Get sum defaults2 ${getSumDefaults2(b = 2)}")
+
+    val person = Person("Test Name")
+
+    val genericObject = object {
+        var a = 1
+        val b = 2
+        fun print() {
+            println("a:${a} and b:${b}")
+        }
+    }
+    println("Generic object a:${genericObject.a} and b:${genericObject.b}")
+    genericObject.a = 100
+    genericObject.print()
+
+    println("TestObject last item: ${TestObject.items.last()}")
 }
 
+object TestObject {
+    val items = arrayOf(10, 20, 30)
+}
 
 fun whenFlow(number: Int) {
     when(number) {
