@@ -33,10 +33,18 @@ fun main(args: Array<String>) {
     val car = Car();
     car.start()
     println("Car has ${car.getDoors()} doors")
+
+    println("Get max: ${getMax(3, 5)}")
+    println("Get max: ${getMax("abc", "abb")}")
 }
 
 object TestObject {
     val items = arrayOf(10, 20, 30)
+}
+
+fun <T: Comparable<T>> getMax(a: T, b: T): T {
+    val result = a.compareTo(b)
+    return if (result > 0) a else b
 }
 
 fun whenFlow(number: Int) {
