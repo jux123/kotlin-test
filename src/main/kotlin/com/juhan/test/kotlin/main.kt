@@ -6,17 +6,36 @@ fun main(args: Array<String>) {
 
     whenFlow(4)
 
-    forLoop(arrayOf(10, 20, 30))
+    useForLoop(arrayOf(10, 20, 30))
 
+    useFunctions()
+
+    useClassConstructor()
+
+    useGeneralObject()
+
+    useInterface()
+
+    useGenerics()
+
+    useOperatorOverloading()
+
+}
+
+fun useFunctions() {
     println("Get sum1 ${getSum1(1, 2)}")
     println("Get sum2 ${getSum2(1, 2)}")
     println("Get sum3 ${getSum3(1, 2)}")
     println("Get sum defaults ${getSumDefaults(1)}")
     println("Get sum defaults ${getSumDefaults(1, 3)}")
     println("Get sum defaults2 ${getSumDefaults2(b = 2)}")
+}
 
+fun useClassConstructor() {
     val person = Person("Test Name")
+}
 
+fun useGeneralObject() {
     val genericObject = object {
         var a = 1
         val b = 2
@@ -29,13 +48,25 @@ fun main(args: Array<String>) {
     genericObject.print()
 
     println("TestObject last item: ${TestObject.items.last()}")
+}
 
+fun useGenerics() {
+    println("Get max: ${getMax(3, 5)}")
+    println("Get max: ${getMax("abc", "abb")}")
+}
+
+fun useInterface() {
     val car = Car();
     car.start()
     println("Car has ${car.getDoors()} doors")
+}
 
-    println("Get max: ${getMax(3, 5)}")
-    println("Get max: ${getMax("abc", "abb")}")
+fun useOperatorOverloading() {
+    println("Operator overloading")
+    val p1 = Position(1, 2)
+    val p2 = Position(2, 3)
+    val p3 = p1 + p2
+    println("Position: ${p3.x}, ${p3.y}")
 }
 
 object TestObject {
@@ -63,7 +94,7 @@ fun whenFlow(number: Int) {
     }
 }
 
-fun forLoop(myArray: Array<Int>) {
+fun useForLoop(myArray: Array<Int>) {
     for (item in 1..5) {
         print("$item, ")
     }
