@@ -28,6 +28,12 @@ fun useDestructing() {
     // variables are ordered by constructor arguments
     val (x, y) = p1;
     println("Got x=$x and y=$y")
+    // works only for data class
+    println("Another way getting x=${p1.component1()}")
+
+    //destructing regular class (operator component1 overloaded)
+    val (pname) = Person("Test")
+    println("Person name: $pname")
 }
 
 fun useFunctions() {
