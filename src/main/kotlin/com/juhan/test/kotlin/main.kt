@@ -20,6 +20,14 @@ fun main(args: Array<String>) {
 
     useOperatorOverloading()
 
+    useDestructing()
+}
+
+fun useDestructing() {
+    val p1 = Position(1, 2)
+    // variables are ordered by constructor arguments
+    val (x, y) = p1;
+    println("Got x=$x and y=$y")
 }
 
 fun useFunctions() {
