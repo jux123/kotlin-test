@@ -4,24 +4,62 @@ fun main(args: Array<String>) {
     val name = if (args.isNotEmpty()) args[0] else "kotlin"
     println("Hello $name")
 
-    whenFlow(4)
+//    whenFlow(4)
+//    useForLoop(arrayOf(10, 20, 30))
+//    useFunctions()
+//    useClassConstructor()
+//    useGeneralObject()
+//    useInterface()
+//    useGenerics()
+//    useOperatorOverloading()
+//    useDestructing()
+//    useLambdas()
+//    useClosures()
+//    useMethodChaining()
 
-    useForLoop(arrayOf(10, 20, 30))
 
-    useFunctions()
-
-    useClassConstructor()
-
-    useGeneralObject()
-
-    useInterface()
-
-    useGenerics()
-
-    useOperatorOverloading()
-
-    useDestructing()
 }
+
+fun useMethodChaining() {
+    val students = getStudents()
+    val sequenceStundets = students.drop(1).take(2).toList()
+    println("Student sequence: $sequenceStundets")
+
+    var numbers = generateSequence(100) { it + 1 }
+    println("Numbers sequence: ${numbers.drop(5).take(20).toList()}")
+
+    val squares = generateSequence(1) { it + 1 }.map { it * it }
+    val evenSquares = squares.filter { it % 2 == 0 }
+    println("Even squares: ${evenSquares.take(5).toList()}")
+
+    val fib = generateSequence(1 to 1) { it.second to it.first + it.second }
+        .map { it.first }
+    println("Fibonacci sequence: ${fib.take(15).toList()}")
+}
+
+fun useClosures() {
+    // Closure is when local variables of function is kept alive after function?
+    var counter1 = closureMaker()
+    var counter2 = closureMaker()
+    counter1()
+    counter1()
+    counter1()
+    counter2()
+
+}
+
+fun useLambdas() {
+    var students = getStudents()
+    var combos = students.map { student -> student.name + " : " + student.age }
+    println("Students $combos")
+
+    // "it" is default parameter
+    println("Oldest student ${students.maxByOrNull { it.age }}")
+
+    var studentsWithShortNames = students.filter { it.name.length <= 4 }
+    println("Students with short name: $studentsWithShortNames")
+}
+
 
 fun useDestructing() {
     val p1 = Position(1, 2)
