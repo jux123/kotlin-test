@@ -1,5 +1,12 @@
 package com.juhan.test.kotlin
 
+import com.juhan.test.kotlin.spring.PersonService
+import com.juhan.test.kotlin.spring.SpringContext
+import org.springframework.context.annotation.AnnotationConfigApplicationContext
+
+
+
+
 fun main(args: Array<String>) {
     val name = if (args.isNotEmpty()) args[0] else "kotlin"
     println("Hello $name")
@@ -16,8 +23,19 @@ fun main(args: Array<String>) {
 //    useLambdas()
 //    useClosures()
 //    useMethodChaining()
+    useDSL()
+    userSpring()
+}
 
+fun userSpring() {
+    val context = AnnotationConfigApplicationContext(SpringContext::class.java)
+    val personService: PersonService = context.getBean(PersonService::class.java)
+    println("Calling person service: ${personService.getPersons().size}")
+}
 
+fun useDSL() {
+    //TODO: Domain Specific Language example
+    
 }
 
 fun useMethodChaining() {
