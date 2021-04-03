@@ -67,7 +67,7 @@
         </dependency>
         <dependency>
             <groupId>io.kotest</groupId>
-            <artifactId>kotest-extensions-spring</artifactId>
+            <artifactId>kotest-extensions-spring-jvm</artifactId>
             <version>${kotest.version}</version>
             <scope>test</scope>
         </dependency>
