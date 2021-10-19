@@ -23,8 +23,45 @@ fun main(args: Array<String>) {
 //    useLambdas()
 //    useClosures()
 //    useMethodChaining()
-    useDSL()
-    userSpring()
+    higherOrderFunctions()
+//    useDSL()
+//    userSpring()
+}
+
+fun higherOrderFunctions() {
+    val strList = listOf("One", "Two", "Three")
+
+    // define function as argument
+    printList(strList, { it.startsWith("T")})
+
+    // define function as body, when last parameter is a function
+    printList(strList) {
+        it.startsWith("T")
+    }
+
+    printList(strList, myPredicate1)
+
+    printList(strList, getMyPredicate2())
+
+}
+
+// function as variable
+val myPredicate1: (String) -> Boolean = {
+    it.startsWith("T")
+}
+
+// functions thar returns a function
+fun getMyPredicate2() : (String) -> Boolean {
+    return { it.startsWith("T")}
+}
+
+fun printList(list: List<String>, predicate: (String) -> Boolean) {
+    // second argument is function that has argument String and returns Boolean
+    list.forEach {
+        if (predicate(it)) {
+            println(it)
+        }
+    }
 }
 
 fun userSpring() {
